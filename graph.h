@@ -8,22 +8,18 @@
 class Vertex {
     public:
         int id;
-        std::vector<int> edges;
+        std::vector<int> edges_dest;
 
-        Vertex() {};
         Vertex(int id) : id(id) {};
-        explicit Vertex(int id, std::vector<int> &edges) : id(id), edges(edges) {};
-        ~Vertex() = default;
+        explicit Vertex(int id, std::vector<int> &edges_dest) : id(id), edges_dest(edges_dest) {};
 };
 
 class Graph {
     private:
-        std::vector<std::shared_ptr<Vertex>> verts;
-        int vert_num;
+        std::vector<std::unique_ptr<Vertex>> verts;
+        int vert_num = 0;
     public:
-        Graph() = default;
-        Graph(std::vector<std::shared_ptr<Vertex>> &verts, int vert_num) : verts(verts), vert_num(vert_num) {};
-
+        Graph(std::vector<std::unique_ptr<Vertex>> &&verts, int vert_num) : verts(std::move(verts)), vert_num(vert_num) {};
         std::vector<int> shortest_distance(int from);
 };
 

@@ -21,11 +21,11 @@ std::vector<int> Graph::shortest_distance(int from)
         }
         if (min_dist == INT_MAX) break;
 
-        for (int i = 0; i < verts[min_ind]->edges.size(); i++)
+        for (int i = 0; i < verts[min_ind]->edges_dest.size(); i++)
         {
             int new_dist = min_dist + 1;
-            if (min_ind != verts[min_ind]->edges[i] && new_dist < dist[verts[min_ind]->edges[i]])
-                dist[verts[min_ind]->edges[i]] = new_dist;
+            if (min_ind != verts[min_ind]->edges_dest[i] && new_dist < dist[verts[min_ind]->edges_dest[i]])
+                dist[verts[min_ind]->edges_dest[i]] = new_dist;
         }
         visited[min_ind] = 1;
     } while (min_dist != INT_MAX);
