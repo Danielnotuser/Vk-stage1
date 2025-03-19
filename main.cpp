@@ -33,9 +33,9 @@ int main()
     int from_vert;
     f >> from_vert;
     std::vector<int> res = g.shortest_distance(from_vert);
-    for (size_t i = 0; i < res.size(); i++)
+    for (int dist : res)
     {
-        std::cout << res[i] << std::endl;
+        std::cout << dist << std::endl;
     }
     return 0;
 }

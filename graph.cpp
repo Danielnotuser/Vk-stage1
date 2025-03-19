@@ -1,6 +1,4 @@
 #include "graph.h"
-#include <fstream>
-
 
 std::vector<int> Graph::shortest_distance(int from)
 {
